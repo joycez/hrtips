@@ -1,0 +1,57 @@
+# == Schema Information
+#
+# Table name: resources
+#
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  p_voice      :string(255)
+#  p_fax        :string(255)
+#  p_tty        :string(255)
+#  p_other      :string(255)
+#  p_other_desc :string(255)
+#  street_1     :string(255)
+#  street_2     :string(255)
+#  city         :string(255)
+#  state        :string(255)
+#  zip          :string(255)
+#  url          :string(255)
+#  desc         :text
+#  language     :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#  admin_id     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resource_name: MyString
+  p_voice: MyString
+  p_fax: MyString
+  p_tty: MyString
+  p_other: MyString
+  p_other_desc: MyString
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  r_url: MyString
+  r_desc: MyText
+  language: 1
+
+two:
+  resource_name: MyString
+  p_voice: MyString
+  p_fax: MyString
+  p_tty: MyString
+  p_other: MyString
+  p_other_desc: MyString
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  r_url: MyString
+  r_desc: MyText
+  language: 1

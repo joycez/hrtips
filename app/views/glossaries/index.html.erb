@@ -1,0 +1,26 @@
+<h1>Listing glossaries</h1>
+<%= link_to 'home', root_path %>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @glossaries.each do |glossary| %>
+      <tr>
+        <td><%= glossary.term %></td>
+        <td><%= link_to 'Show', glossary %></td>
+        <td><%= link_to 'Edit', edit_glossary_path(glossary) %></td>
+        <td><%= link_to 'Destroy', glossary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Glossary', new_glossary_path %>

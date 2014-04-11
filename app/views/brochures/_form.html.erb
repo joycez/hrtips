@@ -1,0 +1,32 @@
+<%= form_for(@brochure) do |f| %>
+  <% if @brochure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brochure.errors.count, "error") %> prohibited this brochure from being saved:</h2>
+
+      <ul>
+      <% @brochure.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :topic, size: 100,   placeholder: "Topic" %></br>
+  <%= f.text_field :name, size: 100,   placeholder: "Name" %></br>
+  <%= f.text_area :author_hist, size: "100*50",   placeholder: "Authorship History" %></br>
+  <%= f.text_area  :content, size: "100*50",   placeholder: "Content" %></br>
+
+  <% if current_page?(edit_brochure_path(@brochure)) %>
+  <% @all_tags_list.each do |t| %>
+    <% if @tag_list.include? t.name %>
+      <%= f.check_box :tag_list, {checked: true, multiple: true}, t, nil %><span><%= t %></spam></br>
+    <% else %>
+      <%= f.check_box :tag_list, {multiple: true}, t, nil %><span><%= t %></spam></br>
+    <% end %>
+  <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_brochure_path(@brochure) %> |
+<%= link_to 'Back', brochures_path %>
+
+<p><span><b>Topic:</b></span><%= @brochure.topic %></p>
+<p><span><b>Name:</b></span><%= @brochure.name %></p>
+<p>
+	<span><b>Tags:</b></span><%= @tags %>
+</p>
+<p><span><b>Revised Date:</b></span><%= @brochure.raw_updated_at %></p>
+<p><span><b>Original Date:</b></span><%= @brochure.raw_created_at %></p>
+<p><span><b>Authorship History:</b></span><%= @brochure.author_hist %></p>
+<p><%= simple_format @brochure.content %></p>

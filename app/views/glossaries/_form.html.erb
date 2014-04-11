@@ -1,0 +1,23 @@
+<%= form_for(@glossary) do |f| %>
+  <% if @glossary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@glossary.errors.count, "error") %> prohibited this glossary from being saved:</h2>
+
+      <ul>
+      <% @glossary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field     :project,    placeholder: "Project" %>
+  <%= f.text_field     :term,    placeholder: "Term" %>
+  <%= f.text_field     :source,    placeholder: "Source" %>
+  <%= f.text_field     :source_year,    placeholder: "Source Year" %>
+  <%= f.text_field     :definition,    placeholder: "Definition" %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

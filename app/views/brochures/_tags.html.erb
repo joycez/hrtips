@@ -1,0 +1,8 @@
+<h3>Tags:</h3>
+  <% @all_tags_list.each do |t| %>
+    <% if @tag_list.include? t.name %>
+      <%= f.check_box :tag_list, {checked: true, multiple: true}, t, nil %><span><%= t %></spam></br>
+    <% else %>
+      <%= f.check_box :tag_list, {multiple: true}, t, nil %><span><%= t %></spam></br>
+    <% end %>
+  <% end %>

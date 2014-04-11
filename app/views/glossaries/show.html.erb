@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_glossary_path(@glossary) %> |
+<%= link_to 'Back', glossaries_path %>
+
+<p><span><b>Project:</b></span><%= @glossary.project %></p>
+<p><span><b>Term:</b></span><%= @glossary.term %></p>
+<p><span><b>Source:</b></span><%= @glossary.source %></p>
+<p><span><b>Source_year:</b></span><%= @glossary.source_year %></p>
+<p><span><b>Definition:</b></span><%= @glossary.definition %></p>

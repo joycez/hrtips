@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: glossaries
+#
+#  id           :integer          not null, primary key
+#  project      :string(255)
+#  term         :string(255)
+#  source       :string(255)
+#  source_label :string(255)
+#  source_year  :string(255)
+#  stats_id     :integer
+#  definition   :text
+#  language     :integer
+#  created_at   :datetime
+#  updated_at   :datetime
+#  admin_id     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project: MyString
+  term: MyString
+  source: MyString
+  sourceLabel: MyString
+  SourceYear: MyString
+  stasid: 1
+  definition: MyText
+  language: 1
+
+two:
+  project: MyString
+  term: MyString
+  source: MyString
+  sourceLabel: MyString
+  SourceYear: MyString
+  stasid: 1
+  definition: MyText
+  language: 1

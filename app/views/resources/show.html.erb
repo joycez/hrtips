@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>
+
+<p><span><b>Name:</b></span><%= @resource.name %></p>
+<p><span><b>Address:</b></span><%= @resource.street_1 %></p>
+<p><span><b>Website:</b></span><%= link_to @resource.url, @resource.url %></p>
+<p><span><b>Voice:</b></span><%= @resource.p_voice %></p>
+<p><span><b>TTY:</b></span><%= @resource.p_tty %></p>
+<p><%= @resource.desc %></p>
