@@ -33,6 +33,7 @@ class Brochure < ActiveRecord::Base
 	validates :topic, :name, :group_id, :content, :language, presence: true
 	validates :group_id, inclusion: {in: [1,2,3,4]}
 	validates :language, inclusion: {in: [1,2]}
+	validates :name, uniqueness: true
 
 	def self.english_topics
 		Brochure.english.map(&:topic).uniq

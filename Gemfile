@@ -4,7 +4,7 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'ckeditor'
 gem 'paperclip'
-
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

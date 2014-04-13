@@ -20,4 +20,5 @@ class Glossary < ActiveRecord::Base
 	scope :spanish, where(language: 2)
 	validates :term, :definition, :language, presence: true
 	validates :language, inclusion: {in: [1,2]}
+	validates :term, uniqueness: true
 end

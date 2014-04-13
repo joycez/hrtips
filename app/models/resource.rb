@@ -20,6 +20,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  admin_id     :integer
+#  updated_by   :integer
 #
 
 class Resource < ActiveRecord::Base
@@ -30,6 +31,7 @@ class Resource < ActiveRecord::Base
 	scope :english, where(language: 1)
 	scope :spanish, where(language: 2)
   validates :name, :desc, :language, presence: true
+  validates :name, uniqueness: true
 
   def address
     address = ""

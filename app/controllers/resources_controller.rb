@@ -61,7 +61,7 @@ class ResourcesController < ApplicationController
       format.html { redirect_to resources_url }
       format.json { head :no_content }
     end
-  end  
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,8 +72,8 @@ class ResourcesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
       #params[:resource]
-      params.require(:resource).permit(:name, :p_voice, :p_fax, :p_tty,
-                                       :street_1, :street_2, :city, :state, :zip, :url, :language, :desc)
+      params.require(:resource).permit(:name, :p_voice, :p_fax, :p_tty, :street_1, :street_2, 
+                                       :city, :state, :zip, :url, :language, :desc, {brochure_ids: []})
     end
 
 end

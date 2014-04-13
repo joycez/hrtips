@@ -20,6 +20,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  admin_id     :integer
+#  updated_by   :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

@@ -1,4 +1,4 @@
-<%= form_for(@resource) do |f| %>
+<%= simple_form_for(@resource) do |f| %>
   <% if @resource.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <table>
     <tr><td><%= f.label :name %></td><td><%= f.text_field :name %></td></tr>
-    <tr><td><%= f.label :languge %></td><td><%= f.select :language, [["English",1], ["Spanish",2]] %></td></tr>    
+    <tr><td><%= f.label :language %></td><td><%= f.select :language, [["English",1], ["Spanish",2]] %></td></tr>    
     <tr><td><%= f.label :voice %></td><td><%= f.text_field :p_voice %></td></tr>
     <tr><td><%= f.label :tty, "TTY" %></td><td><%= f.text_field :p_tty %></td></tr>
     <tr><td><%= f.label :fax %></td><td><%= f.text_field :p_fax %></td></tr>       
@@ -24,7 +24,12 @@
     <tr><td><%= f.label :zipcode %></td><td><%= f.text_field :zip %></td></tr> 
     <tr><td><%= f.label :website %></td><td><%= f.text_field :url %></td></tr>
     <tr><td><%= f.label :description %></td><td><%= f.text_area :desc %></td></tr>
-  </table> 
+  </table>
+
+  <div>
+  <h3>Articles</h3>
+  <%= f.collection_check_boxes :brochure_ids, Brochure.english, :id, :topic, item_wrapper_class: 'block'  %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
