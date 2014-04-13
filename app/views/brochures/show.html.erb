@@ -35,5 +35,5 @@
 </table>
 
 <div>
-	<%= simple_format @brochure.content %>
+	<%= @brochure.content.html_safe %>
 </div>

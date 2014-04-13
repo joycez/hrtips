@@ -19,7 +19,7 @@
                                               Brochure.english_groups.each_with_index.map {|name,index| [name,index+1]} %></td></tr>
     <tr><td><%= f.label :pdf_link, "PDF Link" %></td><td><%= f.text_field :pdf_link %></td></tr>
     <tr><td><%= f.label :author_hist, "Authorship History" %></td><td><%= f.text_area :author_hist %></td></tr>
-    <tr><td><%= f.label :content %></td><td><%= f.text_area :content %></td></tr>
+    <tr><td><%= f.label :content %></td><td><%= f.cktext_area :content, class: 'ckeditor' %></td></tr>
   </table>
 
   <div>
