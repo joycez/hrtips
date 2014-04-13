@@ -11,12 +11,20 @@
     </div>
   <% end %>
 
-  <%= f.text_field     :name,    placeholder: "Name" %>
-  <%= f.text_field     :p_voice,    placeholder: "Voice" %>
-  <%= f.text_field     :p_fax,    placeholder: "Fax" %>
-  <%= f.text_field     :p_tty,    placeholder: "TTY" %>
-  <%= f.text_field     :street_1,    placeholder: "Address" %>
-  <%= f.text_field     :desc,    placeholder: "Description" %>  
+  <table>
+    <tr><td><%= f.label :name %></td><td><%= f.text_field :name %></td></tr>
+    <tr><td><%= f.label :languge %></td><td><%= f.select :language, [["English",1], ["Spanish",2]] %></td></tr>    
+    <tr><td><%= f.label :voice %></td><td><%= f.text_field :p_voice %></td></tr>
+    <tr><td><%= f.label :tty, "TTY" %></td><td><%= f.text_field :p_tty %></td></tr>
+    <tr><td><%= f.label :fax %></td><td><%= f.text_field :p_fax %></td></tr>       
+    <tr><td><%= f.label :street_1 %></td><td><%= f.text_field :street_1 %></td></tr>
+    <tr><td><%= f.label :street_2 %></td><td><%= f.text_field :street_2 %></td></tr>
+    <tr><td><%= f.label :city %></td><td><%= f.text_field :city %></td></tr>
+    <tr><td><%= f.label :state %></td><td><%= f.text_field :state %></td></tr>
+    <tr><td><%= f.label :zipcode %></td><td><%= f.text_field :zip %></td></tr> 
+    <tr><td><%= f.label :website %></td><td><%= f.text_field :url %></td></tr>
+    <tr><td><%= f.label :description %></td><td><%= f.text_area :desc %></td></tr>
+  </table> 
 
   <div class="actions">
     <%= f.submit %>

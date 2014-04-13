@@ -5,7 +5,8 @@ namespace :db do
     # make_resources
     # make_glossaries
     # make_english_brochures
-    make_tags
+    # make_tags
+    make_taggings
   end
 end
 
@@ -97,10 +98,23 @@ def make_english_brochures
 end
 
 def make_tags
-  fopen = File.open("tags.txt", "r")
+  ActsAsTaggableOn::Tag.all.each do |t|
+    t.delete
+  end
+  fopen = File.open("lib/tags.txt", "r")
   tags = fopen.gets.split("\r")
   tags.each do |tag|
     ActsAsTaggableOn::Tag.create!(name: tag)
   end
   fopen.close
+end
+
+def make_taggings
+  Brochure.all.each do |b|
+    t1 = ActsAsTaggableOn::Tag.all.sample
+    t2 = ActsAsTaggableOn::Tag.all.sample
+    t3 = ActsAsTaggableOn::Tag.all.sample
+    b.tag_list.add(t1.name,t2.name,t3.name)
+    b.save
+  end
 end

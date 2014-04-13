@@ -1,26 +1,28 @@
-<h1>Listing resources</h1>
-<%= link_to 'home', root_path %>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Listing Resources</h1>
+<%= link_to 'home', root_path %> | <%= link_to 'New Resource', new_resource_path %>
 
-  <tbody>
-    <% @resources.each do |resource| %>
-      <tr>
-        <td><%= resource.name %></td>
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @brochures.each do |b| %>
+  <% if not b.resources.blank? %>
+    <table>
+      <h2><%= b.topic %></h2>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-<br>
-
-<%= link_to 'New Resource', new_resource_path %>
+      <tbody>
+        <% b.resources.each do |r| %>
+        <tr>
+          <td><%= r.name %></td>
+          <td><%= link_to 'Show', r %></td>
+          <td><%= link_to 'Edit', edit_resource_path(r) %></td>
+          <td><%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>

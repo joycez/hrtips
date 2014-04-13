@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409235601) do
+ActiveRecord::Schema.define(version: 20140413040828) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20140409235601) do
     t.string   "topic"
     t.string   "name"
     t.integer  "group_id"
-    t.string   "link"
     t.text     "content",        limit: 2147483647
     t.string   "pdf_link"
     t.datetime "created_at"
@@ -60,17 +59,13 @@ ActiveRecord::Schema.define(version: 20140409235601) do
   end
 
   create_table "glossaries", force: true do |t|
-    t.string   "project"
     t.string   "term"
-    t.string   "source"
-    t.string   "source_label"
-    t.string   "source_year"
-    t.integer  "stats_id"
     t.text     "definition"
     t.integer  "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "admin_id"
+    t.integer  "updated_by"
   end
 
   create_table "resources", force: true do |t|
@@ -91,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140409235601) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "admin_id"
+    t.integer  "updated_by"
   end
 
   create_table "taggings", force: true do |t|

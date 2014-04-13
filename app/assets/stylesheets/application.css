@@ -11,3 +11,34 @@
  *= require_self
  *= require_tree .
  */
+
+
+body {
+	width: 80%;
+	margin: 0 auto;
+}
+
+td.first-column {
+	width: 25%;
+}
+
+.glossary-term {
+	margin-top: 30px;
+}
+
+dt {
+	font-weight: bold;
+}
+
+form input[type='text'] {
+  width: 600px;
+}
+
+form textarea {
+	width: 600px;
+	height: 200px;
+}
+
+.actions {
+	margin-top: 10px;
+}

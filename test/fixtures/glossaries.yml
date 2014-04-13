@@ -2,18 +2,14 @@
 #
 # Table name: glossaries
 #
-#  id           :integer          not null, primary key
-#  project      :string(255)
-#  term         :string(255)
-#  source       :string(255)
-#  source_label :string(255)
-#  source_year  :string(255)
-#  stats_id     :integer
-#  definition   :text
-#  language     :integer
-#  created_at   :datetime
-#  updated_at   :datetime
-#  admin_id     :integer
+#  id         :integer          not null, primary key
+#  term       :string(255)
+#  definition :text
+#  language   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  admin_id   :integer
+#  updated_by :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

@@ -5,6 +5,10 @@ class BrochuresController < ApplicationController
   # GET /brochures.json
   def index
     @brochures = Brochure.english.order("group_id ASC").all
+    @english_brochures_g1 = Brochure.where(["group_id=? and language=?",1,1])
+    @english_brochures_g2 = Brochure.where(["group_id=? and language=?",2,1])
+    @english_brochures_g3 = Brochure.where(["group_id=? and language=?",3,1])
+    @english_brochures_g4 = Brochure.where(["group_id=? and language=?",4,1])
   end
 
   # GET /brochures/1
@@ -12,20 +16,19 @@ class BrochuresController < ApplicationController
   def show
     @brochure = Brochure.find(params[:id])
     tag_list = @brochure.tag_list
-    if not tag_list.blank?
+    unless tag_list.blank?
       @tags = tag_list.join(', ')
     end
   end
 
   # GET /brochures/new
   def new
-    @brochure = Brochure.new
+    @brochure = current_admin.brochures.new
   end
 
   # GET /brochures/1/edit
   def edit
     @tag_list = @brochure.tag_list
-    @all_tags_list = ActsAsTaggableOn::Tag.all
   end
 
   # POST /brochures
@@ -35,7 +38,7 @@ class BrochuresController < ApplicationController
 
     respond_to do |format|
       if @brochure.save
-        format.html { redirect_to @brochure, notice: 'Brochure was successfully created.' }
+        format.html { redirect_to @brochure, notice: 'Article was successfully created.' }
         format.json { render action: 'show', status: :created, location: @brochure }
       else
         format.html { render action: 'new' }
@@ -49,7 +52,8 @@ class BrochuresController < ApplicationController
   def update
     respond_to do |format|
       if @brochure.update(brochure_params)
-        format.html { redirect_to @brochure, notice: 'Brochure was successfully updated.' }
+        @brochure.saved_by(current_admin)
+        format.html { redirect_to @brochure, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -77,6 +81,6 @@ class BrochuresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brochure_params
       #params[:brochure]
-      params.require(:brochure).permit(:topic, :name, :author_hist, :content, {tag_list: []})
+      params.require(:brochure).permit(:topic, :name, :author_hist, :content, :pdf_link, :group_id, :language, {tag_list: []})
     end
 end

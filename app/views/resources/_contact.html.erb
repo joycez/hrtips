@@ -1,0 +1,9 @@
+<% unless contact.nil? || contact.blank? %>
+  <tr>
+    <td class="first-column"><%= name %></td>
+    <td>
+    	<% if name == "Website" %><%= link_to contact, "http://#{contact}" %>
+    	<% else %><%= contact %><% end %>
+    </td>
+  </tr>
+<% end %>

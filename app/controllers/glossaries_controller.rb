@@ -4,7 +4,7 @@ class GlossariesController < ApplicationController
   # GET /glossaries
   # GET /glossaries.json
   def index
-    @glossaries = Glossary.english.order("term ASC").all
+    @glossaries = Glossary.english.all
   end
 
   # GET /glossaries/1
@@ -14,7 +14,7 @@ class GlossariesController < ApplicationController
 
   # GET /glossaries/new
   def new
-    @glossary = Glossary.new
+    @glossary = current_admin.glossaries.new
   end
 
   # GET /glossaries/1/edit
@@ -24,7 +24,7 @@ class GlossariesController < ApplicationController
   # POST /glossaries
   # POST /glossaries.json
   def create
-    @glossary = Glossary.new(glossary_params)
+    @glossary = current_admin.glossaries.new(glossary_params)
 
     respond_to do |format|
       if @glossary.save
@@ -42,6 +42,7 @@ class GlossariesController < ApplicationController
   def update
     respond_to do |format|
       if @glossary.update(glossary_params)
+        @glossary.saved_by(current_admin)
         format.html { redirect_to @glossary, notice: 'Glossary was successfully updated.' }
         format.json { head :no_content }
       else
@@ -70,7 +71,6 @@ class GlossariesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def glossary_params
       #params[:glossary]
-      params.require(:glossary).permit(:project, :term, :source, 
-                                         :source_year, :definition)
+      params.require(:glossary).permit(:term, :language, :definition)
     end
 end

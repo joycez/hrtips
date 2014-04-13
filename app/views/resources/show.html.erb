@@ -3,9 +3,21 @@
 <%= link_to 'Edit', edit_resource_path(@resource) %> |
 <%= link_to 'Back', resources_path %>
 
-<p><span><b>Name:</b></span><%= @resource.name %></p>
-<p><span><b>Address:</b></span><%= @resource.street_1 %></p>
-<p><span><b>Website:</b></span><%= link_to @resource.url, @resource.url %></p>
-<p><span><b>Voice:</b></span><%= @resource.p_voice %></p>
-<p><span><b>TTY:</b></span><%= @resource.p_tty %></p>
+<h2><%= @resource.name %></h2>
+<address><%= simple_format @resource.address %></address>
+
+<% if @resource.contacts? %>
+<table>
+	<tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= render partial: "contact", locals: {contact: @resource.p_voice, name: "Voice"} %>
+  <%= render partial: "contact", locals: {contact: @resource.p_tty, name: "TTY"} %>
+  <%= render partial: "contact", locals: {contact: @resource.p_fax, name: "Fax"} %>
+  <%= render partial: "contact", locals: {contact: @resource.p_other, name: @resource.p_other_desc} %>
+  <%= render partial: "contact", locals: {contact: @resource.correct_url, name: "Website"} %>
+</table>
+<% end %>
+
 <p><%= @resource.desc %></p>

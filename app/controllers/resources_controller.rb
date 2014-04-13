@@ -5,6 +5,7 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.english.all
+    @brochures = Brochure.english.all
   end
 
   # GET /resources/1
@@ -14,7 +15,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/new
   def new
-    @resource = Resource.new
+    @resource = current_admin.resources.new
   end
 
   # GET /resources/1/edit
@@ -24,7 +25,7 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
-    @resource = Resource.new(resource_params)
+    @resource = current_admin.resources.new(resource_params)
 
     respond_to do |format|
       if @resource.save
@@ -42,6 +43,7 @@ class ResourcesController < ApplicationController
   def update
     respond_to do |format|
       if @resource.update(resource_params)
+        @resource.saved_by(current_admin)
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
         format.json { head :no_content }
       else
@@ -59,7 +61,7 @@ class ResourcesController < ApplicationController
       format.html { redirect_to resources_url }
       format.json { head :no_content }
     end
-  end
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,7 +72,8 @@ class ResourcesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
       #params[:resource]
-      params.require(:resource).permit(:name, :p_voice, :p_fax, :p_tty, 
-                                       :street_1, :desc)
+      params.require(:resource).permit(:name, :p_voice, :p_fax, :p_tty,
+                                       :street_1, :street_2, :city, :state, :zip, :url, :language, :desc)
     end
+
 end

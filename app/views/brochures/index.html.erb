@@ -1,26 +1,10 @@
-<h1>Listing brochures</h1>
-<%= link_to 'home', root_path %>
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @brochures.each do |brochure| %>
-      <tr>
-        <td><%= brochure.topic %></td>
-        <td><%= link_to 'Show', brochure %></td>
-        <td><%= link_to 'Edit', edit_brochure_path(brochure) %></td>
-        <td><%= link_to 'Destroy', brochure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Brochure', new_brochure_path %>
+<h1>Listing Articles</h1>
+<%= link_to 'home', root_path %> | <%= link_to 'New Article', new_brochure_path %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g1,
+                                                    heading: Brochure.english_groups[0]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g2,
+                                                    heading: Brochure.english_groups[1]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g3,
+                                                    heading: Brochure.english_groups[2]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g4,
+                                                    heading: Brochure.english_groups[3]} %>
