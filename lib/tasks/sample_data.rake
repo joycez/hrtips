@@ -5,8 +5,8 @@ namespace :db do
     # make_resources
     # make_glossaries
     # make_english_brochures
-    # make_tags
-    make_taggings
+    make_tags
+    # make_taggings
   end
 end
 
