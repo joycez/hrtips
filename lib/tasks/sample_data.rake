@@ -1,20 +1,20 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    # make_admins
+    make_admins
     # make_resources
     # make_glossaries
     # make_english_brochures
-    make_tags
+    # make_tags
     # make_taggings
   end
 end
 
 def make_admins
-  5.times do |n|
-    email = "johndoe#{n+1}@cornell.edu"
-    password = "foobar"
-    password_confirmation = "foobar"
+  password = "D0lgenHa1!"
+  password_confirmation = "D0lgenHa1!"
+  emails = ["sav22@cornell.edu", "brb76@cornell.edu", "mww59@cornell.edu", "cgl8@cornell.edu", "jz578@cornell.edu"]
+  emails.each do |email|
     Admin.create!(email: email,
                   password: password,
                   password_confirmation: password)
