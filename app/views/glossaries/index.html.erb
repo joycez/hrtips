@@ -1,5 +1,8 @@
 <h1>Listing Glossary</h1>
-<%= link_to 'home', root_path %> | <%= link_to 'New Glossary', new_glossary_path %>
+<%= link_to 'home', root_path %>
+<% if current_admin %>
+ | <%= link_to 'New Glossary', new_glossary_path %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -14,8 +17,10 @@
       <tr>
         <td><%= glossary.term %></td>
         <td><%= link_to 'Show', glossary %></td>
+        <% if current_admin %>
         <td><%= link_to 'Edit', edit_glossary_path(glossary) %></td>
         <td><%= link_to 'Destroy', glossary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

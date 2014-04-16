@@ -1,5 +1,8 @@
 <h1>Listing Articles</h1>
-<%= link_to 'home', root_path %> | <%= link_to 'New Article', new_brochure_path %>
+<%= link_to 'home', root_path %> 
+<% if current_admin %>
+| <%= link_to 'New Article', new_brochure_path %>
+<% end %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g1,
                                                     heading: Brochure.english_groups[0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g2,
