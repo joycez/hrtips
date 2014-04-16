@@ -31,7 +31,7 @@ class Brochure < ActiveRecord::Base
 	scope :english, where(language: 1)
 	scope :spanish, where(language: 2)
 	validates :topic, :name, :group_id, :content, :language, presence: true
-	validates :group_id, inclusion: {in: [1,2,3,4]}
+	validates :group_id, inclusion: {in: [0,1,2,3,4]}
 	validates :language, inclusion: {in: [1,2]}
 	validates :name, uniqueness: true
 

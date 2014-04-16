@@ -30,6 +30,7 @@ class Resource < ActiveRecord::Base
 	default_scope order('name ASC')
 	scope :english, where(language: 1)
 	scope :spanish, where(language: 2)
+  scope :without_brochures, where("id NOT IN (SELECT resource_id FROM brochures_resources)")
   validates :name, :desc, :language, presence: true
   validates :name, uniqueness: true
 
@@ -69,6 +70,17 @@ class Resource < ActiveRecord::Base
         link = 'http://'+url
       end
     end
+  end
+
+  def self.find_resources_without_association
+    Resource.find_by_sql(%Q{
+      select *
+      from 'resources'
+      where id NOT IN (
+        select resource_id
+        from 'brochures_resources'
+      );
+    })
   end
 
 end
