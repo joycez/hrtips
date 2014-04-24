@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # This migration comes from acts_as_taggable_on_engine (originally 3)
 class AddTaggingsCounterCacheToTags < ActiveRecord::Migration
   def self.up

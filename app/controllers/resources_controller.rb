@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]

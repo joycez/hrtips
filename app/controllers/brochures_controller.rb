@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class BrochuresController < ApplicationController
   before_action :set_brochure, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
@@ -53,6 +55,12 @@ class BrochuresController < ApplicationController
     respond_to do |format|
       if @brochure.update(brochure_params)
         @brochure.saved_by(current_admin)
+        # spanish_brochure_id = params[:spanish_brochure]
+        # unless spanish_brochure_id.nil? or spanish_brochure_id.blank?
+        #   @brochure.translation.create!(english_brochure_id: @brochure.id, 
+        #     spanish_brochure_id: spanish_brochure_id.to_i)
+        # end
+        # @brochure.save
         format.html { redirect_to @brochure, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,6 +89,8 @@ class BrochuresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brochure_params
       #params[:brochure]
-      params.require(:brochure).permit(:topic, :name, :author_hist, :content, :pdf_link, :group_id, :language, {tag_list: []})
+      params.require(:brochure).permit(:topic, :name, :author_hist, :content, 
+                                       :pdf_link, :group_id, :language, {tag_list: []},
+                                       :translation)
     end
 end

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class RemoveColumnsFromGlossaries < ActiveRecord::Migration
   def change
   	remove_column :glossaries, :project

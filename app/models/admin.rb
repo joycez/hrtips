@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # == Schema Information
 #
 # Table name: admins
@@ -24,5 +26,6 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :resources
   has_many :glossaries
-  has_many :brochures		 
+  has_many :brochures	
+  has_many :translations	 
 end

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class AddAdminIdToResource < ActiveRecord::Migration
   def change
     add_column :resources, :admin_id, :integer

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class CreateEnglishBrochures < ActiveRecord::Migration
   def change
     create_table :english_brochures do |t|

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 Hrtips::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins, path: '3d11bebd1412fbdbb4601af478f061cd'

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # == Schema Information
 #
 # Table name: brochures
@@ -27,6 +29,7 @@ class Brochure < ActiveRecord::Base
 	acts_as_taggable
 	belongs_to :admin
 	has_and_belongs_to_many :resources
+
 	default_scope order('topic ASC')
 	scope :english, where(language: 1)
 	scope :spanish, where(language: 2)
@@ -47,5 +50,6 @@ class Brochure < ActiveRecord::Base
 	def self.english_tags
 		ActsAsTaggableOn::Tag.all
 	end
+
 
 end

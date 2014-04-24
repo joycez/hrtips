@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class AddUpdatedByToGlossaries < ActiveRecord::Migration
   def change
   	add_column :glossaries, :updated_by, :integer
