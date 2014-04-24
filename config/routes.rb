@@ -2,7 +2,8 @@
 
 Hrtips::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :admins, path: '3d11bebd1412fbdbb4601af478f061cd'
+  devise_for :admins
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
