@@ -6,11 +6,11 @@ class BrochuresController < ApplicationController
   # GET /brochures
   # GET /brochures.json
   def index
-    @brochures = Brochure.english.order("group_id ASC").all
-    @english_brochures_g1 = Brochure.where(["group_id=? and language=?",1,1])
-    @english_brochures_g2 = Brochure.where(["group_id=? and language=?",2,1])
-    @english_brochures_g3 = Brochure.where(["group_id=? and language=?",3,1])
-    @english_brochures_g4 = Brochure.where(["group_id=? and language=?",4,1])
+    @brochures = Brochure.english.order("group_id ASC").load
+    @english_brochures_g1 = Brochure.where(["group_id=? and language=?",1,1]).to_a
+    @english_brochures_g2 = Brochure.where(["group_id=? and language=?",2,1]).to_a
+    @english_brochures_g3 = Brochure.where(["group_id=? and language=?",3,1]).to_a
+    @english_brochures_g4 = Brochure.where(["group_id=? and language=?",4,1]).to_a
   end
 
   # GET /brochures/1

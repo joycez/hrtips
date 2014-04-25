@@ -30,9 +30,10 @@ class Brochure < ActiveRecord::Base
 	belongs_to :admin
 	has_and_belongs_to_many :resources
 
-	default_scope order('topic ASC')
-	scope :english, where(language: 1)
-	scope :spanish, where(language: 2)
+	default_scope {order('topic ASC')}
+	scope :english, -> { where(language: 1) }
+	scope :spanish, -> { where(language: 2) }
+
 	validates :topic, :name, :group_id, :content, :language, presence: true
 	validates :group_id, inclusion: {in: [0,1,2,3,4]}
 	validates :language, inclusion: {in: [1,2]}

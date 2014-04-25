@@ -23,5 +23,6 @@ module Hrtips
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.i18n.enforce_available_locales = true
   end
 end

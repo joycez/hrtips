@@ -6,8 +6,8 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.english.all
-    @brochures = Brochure.english.all
+    @resources = Resource.english.load
+    @brochures = Brochure.english.load
   end
 
   # GET /resources/1

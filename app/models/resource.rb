@@ -29,10 +29,11 @@ class Resource < ActiveRecord::Base
   include Functions
 	has_and_belongs_to_many :brochures
 	belongs_to :admin
-	default_scope order('name ASC')
-	scope :english, where(language: 1)
-	scope :spanish, where(language: 2)
-  scope :without_brochures, where("id NOT IN (SELECT resource_id FROM brochures_resources)")
+	default_scope {order('name ASC')}
+	scope :english, -> {where(language: 1)}
+	scope :spanish, -> {where(language: 2)}
+  scope :without_brochures, -> {where("id NOT IN (SELECT resource_id FROM brochures_resources)")}
+
   validates :name, :desc, :language, presence: true
   validates :name, uniqueness: true
 
