@@ -1,0 +1,10 @@
+<h2>All Accounts</h2>
+<p><%= link_to 'home', root_path %></p>
+<ul>
+  <% @admins.each do |admin| %>
+    <li>
+    	<%= admin.email %>
+    	<%= link_to "delete", admin, data: { confirm: "Are you sure?" }, method: :delete %>
+    </li>
+  <% end %>
+</ul>
