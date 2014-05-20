@@ -16,12 +16,12 @@
     <td><%= @tags %></td>
   </tr>
   <% end %>
+  <% unless @brochure.raw_updated_at.nil? %>
   <tr>
     <td class="first-column">Revised Date</td>
-    <td><% if @brochure.updated_at.nil? %><%= @brochure.raw_updated_at %>
-    		<% else %><%= @brochure.updated_at.year %><% end %>
-    </td>
+    <td><%= @brochure.raw_updated_at %></td>
   </tr>
+  <% end %>
 	<tr>
     <td class="first-column">Original Date</td>
     <td><% if @brochure.created_at.nil? %><%= @brochure.raw_created_at %>
