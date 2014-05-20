@@ -89,7 +89,7 @@ class BrochuresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def brochure_params
       #params[:brochure]
-      params.require(:brochure).permit(:topic, :name, :author_hist, :content, 
+      params.require(:brochure).permit(:topic, :name, :author_hist, :content, :raw_updated_at,
                                        :pdf_link, :group_id, :language, {tag_list: []},
                                        :translation)
     end

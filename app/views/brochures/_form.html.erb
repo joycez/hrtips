@@ -1,4 +1,4 @@
-<%= form_for(@brochure) do |f| %>
+<%= simple_form_for(@brochure) do |f| %>
   <% if @brochure.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@brochure.errors.count, "error") %> prohibited this brochure from being saved:</h2>
@@ -18,6 +18,7 @@
     <tr><td><%= f.label :group %></td><td><%= f.select :group_id, 
                                               Brochure.english_groups.each_with_index.map {|name,index| [name,index+1]} %></td></tr>
     <tr><td><%= f.label :pdf_link, "PDF Link" %></td><td><%= f.text_field :pdf_link %></td></tr>
+    <tr><td><%= f.label :raw_updated_at, "Revised Date", placeholder: "Year" %></td><td><%= f.text_field :raw_updated_at %></td></tr>
     <tr><td><%= f.label :author_hist, "Authorship History" %></td><td><%= f.text_area :author_hist %></td></tr>
     <tr><td><%= f.label :content %></td><td><%= f.cktext_area :content, class: 'ckeditor' %></td></tr>
   </table>
