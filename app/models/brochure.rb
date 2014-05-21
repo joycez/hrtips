@@ -35,7 +35,7 @@ class Brochure < ActiveRecord::Base
 	scope :spanish, -> { where(language: 2) }
 
 	validates :topic, :name, :group_id, :content, :language, presence: true
-	validates :group_id, inclusion: {in: [0,1,2,3,4]}
+	validates :group_id, inclusion: {in: [0,1,2,3,4,5]}
 	validates :language, inclusion: {in: [1,2]}
 	validates :name, uniqueness: true
 
@@ -45,7 +45,12 @@ class Brochure < ActiveRecord::Base
 
 	def self.english_groups
 		["Disability Nondiscrimination Regulations", "Management and HR Practice",
-			"Employment Process", "Accomodations of Specific Disabilities"]
+			"Employment Process", "Accomodations of Specific Disabilities", "HR Checklists"]
+	end
+
+	def self.spanish_groups
+		["Reglamentaciones de no-discriminación de la discapacidad", "Administración y prácticas de RH",
+			"Proceso de empleo", "Acomodaciones para discapacidades específicas", "Listas de RH"]
 	end
 
 	def self.english_tags

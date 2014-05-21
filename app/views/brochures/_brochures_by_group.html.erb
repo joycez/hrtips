@@ -1,5 +1,7 @@
 <table>
+  <% unless heading.nil? %>
 	<h2><%= heading %></h2>
+  <% end %>
   <thead>
     <tr>
       <th></th>
@@ -11,7 +13,9 @@
   <tbody>
   	<% brochures.each do |brochure| %>
     <tr>
-        <td><%= brochure.topic %></td>
+        <% unless brochure.nil? %>
+        <td><%= brochure.topic.html_safe %></td>
+        <% end %>
         <td><%= link_to 'Show', brochure %></td>
         <% if current_admin %>
         <td><%= link_to 'Edit', edit_brochure_path(brochure) %></td>

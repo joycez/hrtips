@@ -3,7 +3,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    make_admins
+    # make_admins
     # make_resources
     # make_glossaries
     # make_english_brochures

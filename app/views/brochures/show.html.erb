@@ -5,7 +5,9 @@
 <%= link_to 'Back', brochures_path %>
 
 <table>
+  <% unless @brochure.name.nil? %>
 	<h1><%= @brochure.name.html_safe %></h1>
+  <% end %>
 	<tr>
     <th></th>
     <th></th>
@@ -16,18 +18,20 @@
     <td><%= @tags %></td>
   </tr>
   <% end %>
-  <% unless @brochure.raw_updated_at.nil? %>
+  <% unless @brochure.raw_updated_at.nil? or @brochure.raw_updated_at.blank? %>
   <tr>
     <td class="first-column">Revised Date</td>
     <td><%= @brochure.raw_updated_at %></td>
   </tr>
   <% end %>
+  <% unless @brochure.created_at.nil? or @brochure.raw_created_at.nil? %>
 	<tr>
     <td class="first-column">Original Date</td>
     <td><% if @brochure.created_at.nil? %><%= @brochure.raw_created_at %>
     		<% else %><%= @brochure.created_at.year %><% end %>
     </td>
   </tr> 
+  <% end %>
   <% unless @brochure.author_hist.blank? %>
   <tr>
     <td class="first-column">Authorship History</td>
@@ -37,5 +41,7 @@
 </table>
 
 <div>
+  <% unless @brochure.content.nil? %>
 	<%= @brochure.content.html_safe %>
+  <% end %>
 </div>

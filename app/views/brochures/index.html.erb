@@ -1,8 +1,13 @@
 <h1>Listing Articles</h1>
+<div class="nav-links">
 <%= link_to 'home', root_path %> 
 <% if current_admin %>
 | <%= link_to 'New Article', new_brochure_path %>
 <% end %>
+</div>
+
+<div class="left-col">
+<h2>English Articles</h2>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g1,
                                                     heading: Brochure.english_groups[0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g2,
@@ -11,3 +16,20 @@
                                                     heading: Brochure.english_groups[2]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g4,
                                                     heading: Brochure.english_groups[3]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g5,
+                                                    heading: Brochure.english_groups[4]} %>
+</div>
+
+<div class="right-col">
+<h2>Spanish Articles</h2>
+<%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g1,
+                                                    heading: Brochure.spanish_groups[0]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g2,
+                                                    heading: Brochure.spanish_groups[1]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g3,
+                                                    heading: Brochure.spanish_groups[2]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g4,
+                                                    heading: Brochure.spanish_groups[3]} %>
+<%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g5,
+                                                    heading: Brochure.spanish_groups[4]} %>
+</div>

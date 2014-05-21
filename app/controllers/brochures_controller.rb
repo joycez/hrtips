@@ -11,6 +11,14 @@ class BrochuresController < ApplicationController
     @english_brochures_g2 = Brochure.where(["group_id=? and language=?",2,1]).to_a
     @english_brochures_g3 = Brochure.where(["group_id=? and language=?",3,1]).to_a
     @english_brochures_g4 = Brochure.where(["group_id=? and language=?",4,1]).to_a
+    @english_brochures_g5 = Brochure.where(["group_id=? and language=?",5,1]).to_a
+
+    @spanish_brochures = Brochure.spanish.order("group_id ASC").load
+    @spanish_brochures_g1 = Brochure.where(["group_id=? and language=?",1,2]).to_a
+    @spanish_brochures_g2 = Brochure.where(["group_id=? and language=?",2,2]).to_a
+    @spanish_brochures_g3 = Brochure.where(["group_id=? and language=?",3,2]).to_a
+    @spanish_brochures_g4 = Brochure.where(["group_id=? and language=?",4,2]).to_a
+    @spanish_brochures_g5 = Brochure.where(["group_id=? and language=?",5,2]).to_a
   end
 
   # GET /brochures/1
