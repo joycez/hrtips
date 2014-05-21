@@ -16,7 +16,7 @@
     <tr><td><%= f.label :name %></td><td><%= f.text_field :name %></td></tr>
     <tr><td><%= f.label :languge %></td><td><%= f.select :language, [["English",1], ["Spanish",2]] %></td></tr>
     <tr><td><%= f.label :group %></td><td><%= f.select :group_id, 
-                                              Brochure.english_groups.each_with_index.map {|name,index| [name,index+1]} %></td></tr>
+                                              Brochure.groups.each_with_index.map {|name,index| [name.join('/'),index+1]} %></td></tr>
     <tr><td><%= f.label :pdf_link, "PDF Link" %></td><td><%= f.text_field :pdf_link %></td></tr>
     <tr><td><%= f.label :raw_updated_at, "Revised Date", placeholder: "Year" %></td><td><%= f.text_field :raw_updated_at %></td></tr>
     <tr><td><%= f.label :author_hist, "Authorship History" %></td><td><%= f.text_area :author_hist %></td></tr>

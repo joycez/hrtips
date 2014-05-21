@@ -9,27 +9,27 @@
 <div class="left-col">
 <h2>English Articles</h2>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g1,
-                                                    heading: Brochure.english_groups[0]} %>
+                                                    heading: Brochure.groups[0][0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g2,
-                                                    heading: Brochure.english_groups[1]} %>
+                                                    heading: Brochure.groups[1][0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g3,
-                                                    heading: Brochure.english_groups[2]} %>
+                                                    heading: Brochure.groups[2][0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g4,
-                                                    heading: Brochure.english_groups[3]} %>
+                                                    heading: Brochure.groups[3][0]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @english_brochures_g5,
-                                                    heading: Brochure.english_groups[4]} %>
+                                                    heading: Brochure.groups[4][0]} %>
 </div>
 
 <div class="right-col">
 <h2>Spanish Articles</h2>
 <%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g1,
-                                                    heading: Brochure.spanish_groups[0]} %>
+                                                    heading: Brochure.groups[0][1]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g2,
-                                                    heading: Brochure.spanish_groups[1]} %>
+                                                    heading: Brochure.groups[1][1]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g3,
-                                                    heading: Brochure.spanish_groups[2]} %>
+                                                    heading: Brochure.groups[2][1]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g4,
-                                                    heading: Brochure.spanish_groups[3]} %>
+                                                    heading: Brochure.groups[3][1]} %>
 <%= render partial: 'brochures_by_group', locals: { brochures: @spanish_brochures_g5,
-                                                    heading: Brochure.spanish_groups[4]} %>
+                                                    heading: Brochure.groups[4][1]} %>
 </div>

@@ -53,6 +53,14 @@ class Brochure < ActiveRecord::Base
 			"Proceso de empleo", "Acomodaciones para discapacidades específicas", "Listas de RH"]
 	end
 
+	def self.groups
+		[["Disability Nondiscrimination Regulations", "Reglamentaciones de no-discriminación de la discapacidad"],
+		["Management and HR Practice", "Administración y prácticas de RH"],
+		["Employment Process", "Proceso de empleo"],
+		["Accomodations of Specific Disabilities", "Acomodaciones para discapacidades específicas"],
+		["HR Checklists", "Listas de RH"]]
+	end
+
 	def self.english_tags
 		ActsAsTaggableOn::Tag.all
 	end
